@@ -16,7 +16,19 @@ if (Meteor.isClient) {
 
       MeteorCamera.getPicture(cameraOptions, function (error, data) {
         Photos.insert({data: data});
+        Meteor.call('postTweet');
       });
+    }
+  });
+}
+
+if (Meteor.isServer) {
+  var twitter = new TwitterApi();
+
+  Meteor.methods({
+    postTweet: function () {
+      if (Meteor.user())
+        twitter.postTweet('Learning Meteor at HackMIT!');
     }
   });
 }
