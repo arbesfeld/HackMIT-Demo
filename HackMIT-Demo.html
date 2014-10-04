@@ -1,14 +1,14 @@
 <head>
-  <title>HackMIT-Demo</title>
+  <title>Welcome to HackMIT!</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Photo Booth</h1>
+  <button>Take a Photo</button>
 
-  {{> hello}}
+  {{#each photos}}
+    <div>
+      <img src="{{data}}"/>
+    </div>
+  {{/each}}
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
